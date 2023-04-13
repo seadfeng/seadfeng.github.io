@@ -34,7 +34,7 @@ $ bundle
 
 ```bash
 bin/post new "New Post" -c "Blog" -t "Post"
-``
+```
 
 ## Usage
 
