@@ -33,7 +33,7 @@ $ bundle
 ## New Post
 
 ```bash
-bin/post new "New Post" -c "Blog" -t "Post"
+bin/post new "New Post" -c "category1, category2" -t "tag1, tag2"
 ```
 
 ## Usage
