@@ -1,0 +1,55 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+require "thor"
+require "yaml"
+require "tzinfo"
+
+Config = YAML.load(File.read("_config.yml"))
+Authors = File.exist?('_data/authors.yml') ? YAML.load(File.read('_data/authors.yml')) : nil
+TZone = Config.dig('timezone') || "+0800"
+
+class MyCLI < Thor
+  option :categories, :banner => "<categories>", :aliases => '-c'
+  option :tags, :banner => "<tags>", :aliases => '-t'
+
+  desc "new <title> -c <categories> -t <tags> --author <author>", 'Create a new post'
+  long_desc <<-LONGDESC
+    With -c <categories> option
+    With -t <tags> option
+    With --author <author> option
+  LONGDESC
+ 
+  def new(title)
+    t = TZInfo::Timezone.get(TZone).now
+    fpath = "_posts/#{t.strftime("%Y-%m-%d")}-#{title.gsub(/ /,'-')}.md"
+    puts "File Path: #{fpath}"
+
+    f = File.new(fpath, mode: 'w')
+    f.write("---\n")
+    f.write("layout: post\n")
+    f.write("title: #{title}\n")
+    f.write("date: #{t.strftime("%Y-%m-%d %H:%M:%S %z")}\n")
+    
+    categories = options[:categories]
+    if !categories.nil? && !categories.empty? && categories != 'categories'
+      f.write("categories: [#{categories}]\n")
+    end
+
+    tags = options[:tags]
+    if !tags.nil? && !tags.empty? && tags != 'tags'
+      f.write("tags: [#{tags}]\n")
+    end
+
+    author = options[:author]
+    if (author.nil? || author.empty?) && !Authors.nil?
+      author =  Authors.first.first
+    end
+
+    f.write("author: #{author}\n")
+    f.write("summary: todo summary\n")
+    f.write('---')
+    f.close
+  end
+end
+
+MyCLI.start(ARGV)
