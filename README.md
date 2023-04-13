@@ -30,6 +30,12 @@ Then clone it to your local machine and run:
 $ bundle
 ```
 
+## New Post
+
+```bash
+bin/post new "New Post" -c "Blog" -t "Post"
+``
+
 ## Usage
 
 Please see the [theme's docs](https://github.com/cotes2020/jekyll-theme-chirpy#documentation).

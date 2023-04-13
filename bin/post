@@ -21,9 +21,14 @@ class MyCLI < Thor
  
   def new(title)
     t = TZInfo::Timezone.get(TZone).now
-    fpath = "_posts/#{t.strftime("%Y-%m-%d")}-#{title.gsub(/ /,'-')}.md"
+    fpath = "_posts/#{t.strftime("%Y-%m-%d")}-#{title.downcase.gsub(/ /,'-')}.md"
     puts "File Path: #{fpath}"
-
+    if File.exist?(fpath)
+      puts "File Exist!"
+      return
+    else
+      puts "File Create!"
+    end
     f = File.new(fpath, mode: 'w')
     f.write("---\n")
     f.write("layout: post\n")
