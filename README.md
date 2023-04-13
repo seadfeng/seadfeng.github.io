@@ -34,6 +34,9 @@ $ bundle
 
 ```bash
 bin/post new "New Post" -c "category1, category2" -t "tag1, tag2"
+# output
+# File Path: _posts/YYYY-mm-dd-new-post.md
+# File Create!
 ```
 
 ## Usage
