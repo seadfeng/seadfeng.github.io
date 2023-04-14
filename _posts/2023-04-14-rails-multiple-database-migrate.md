@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Ruby on Rails 多数据库踩坑日记
+title: Ruby on Rails gem下多数据库怎样迁移？
 date: 2023-04-14 22:37:09 +0800
 categories: [Blog]
 tags: [Ruby, Rails, Rails 7, 多数据库, clickhouse, postgresql]
@@ -19,9 +19,9 @@ $ rails plugin new blorgh --mountable
 详细文档 https://guides.rubyonrails.org/engines.html
 
 
-## Rails多数据库如何使用复制gem的迁移文件到项目中？
+## Rails多数据库如何复制gem的迁移文件到项目中？
 
-blorgh下迁移文件路径
+### blorgh下迁移文件路径
 
 - db/migrate
 - db/clickhouse
@@ -31,7 +31,9 @@ $ rake railties:install:migrations from=gemname # 默认复制db/migrate
 $ MIGRATIONS_PATH=db/clickhouse rake railties:install:migrations from=gemname #重点
 ```
 
-railties:install:migrations 代码片段 （rails 7.0.4.3）
+### railties:install:migrations 代码片段 （rails 7.0.4.3）
+
+代码中使用了MIGRATIONS_PATH环境变量替换默认的'db/migrate',有的懒不能偷懒，指南中没有的内容需要挖源码
 
 ```ruby
 # /usr/local/bundle/gems/activerecord-7.0.4.3/lib/active_record/railties/databases.rake 
