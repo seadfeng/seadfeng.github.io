@@ -43,13 +43,13 @@ social:
     # The first element serves as the copyright owner's link
     - https://github.com/seadfeng # change to your github homepage
 
-google_site_verification: # fill in to your verification string
+google_site_verification: 83SOwGM4hPryAuMfW7hhbpLCHZO1tGflIVDjDaRID6Y
 
 # ↑ --------------------------
 # The end of `jekyll-seo-tag` settings
 
 google_analytics:
-  id: # fill in your Google Analytics ID
+  id: G-092KE5259Y
   # Google Analytics pageviews report settings
   pv:
     proxy_endpoint: # fill in the Google Analytics superProxy endpoint of Google App Engine
