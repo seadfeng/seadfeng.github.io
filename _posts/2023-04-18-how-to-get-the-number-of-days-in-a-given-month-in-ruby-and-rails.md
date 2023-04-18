@@ -3,6 +3,8 @@ layout: post
 title: Ruby and Rails 获取当前或指定月份的日期数
 date: 2023-04-18 14:21:48 +0800
 author: sead
+categories: [Blog]
+tags: [Ruby, Rails]
 summary: Ruby and Rails 获取指定月份的日期数, 当前月份日期数:Time.days_in_month(Time.now.month, Time.now.year)
 ---
 ## Rails
