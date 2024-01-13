@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-gem 'jekyll-theme-chirpy', '~> 5.6', '>= 5.6.1'
+gem 'jekyll-theme-chirpy', '~> 6.0.0'
 gem 'thor', '~> 1.2', '>= 1.2.1'
 
 group :test do
