@@ -5,7 +5,7 @@ date: 2024-01-13 11:56:46 +0800
 categories: [GitLab]
 tags: [垃圾回收]
 author: sead
-summary: todo summary
+summary: GitLab docker 镜像清理
 ---
 
 GitLab Container Registry docker 镜像 清理
